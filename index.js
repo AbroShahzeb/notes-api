@@ -4,11 +4,12 @@ dotenv.config();
 import cors from "cors";
 import "colors";
 import cookieParser from "cookie-parser";
+import passport from "passport";
 
 import globalErrorHandler from "./controllers/error.controller.js";
-import AppError from "./utils/appError.js";
 import { connectDB } from "./utils/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import "./utils/passport.js";
 
 const app = express();
 
@@ -16,6 +17,7 @@ connectDB();
 
 app.use(cors());
 app.use(cookieParser());
+app.use(passport.initialize());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
