@@ -9,6 +9,7 @@ import passport from "passport";
 import globalErrorHandler from "./controllers/error.controller.js";
 import { connectDB } from "./utils/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import notesRoutes from "./routes/notes.routes.js";
 import "./utils/passport.js";
 
 const app = express();
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/notes", notesRoutes);
 
 app.use(globalErrorHandler);
 
