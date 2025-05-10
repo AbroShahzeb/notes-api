@@ -16,7 +16,12 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CORS_URL,
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(passport.initialize());
 

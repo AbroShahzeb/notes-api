@@ -203,3 +203,10 @@ export const googleCallback = catchAsync(async (req, res) => {
 
   res.redirect(`${process.env.FRONTEND_URL}`);
 });
+
+export const getCurrentUser = catchAsync(async (req, res) => {
+  res.status(200).json({
+    status: "success",
+    data: { user: req.user },
+  });
+});
